@@ -7,7 +7,14 @@ class SearchResults extends Component{
   render(){
     const {filteredPlanets} = this.props;
 
+
     let sortedArray = filteredPlanets.sort((a, b) => {
+      if(a.population === "unknown"){
+        return true;
+      }
+      if(b.population === "unknown"){
+        return false;
+      }
       return a.population < b.population;
     });
 
